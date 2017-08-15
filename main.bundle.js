@@ -21,6 +21,7 @@ webpackEmptyContext.id = "../../../../../src async recursive";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_page_home_page_component__ = __webpack_require__("../../../../../src/app/home-page/home-page.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login_page_login_page_component__ = __webpack_require__("../../../../../src/app/login-page/login-page.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppRoutingModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -32,17 +33,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 const routes = [
-    { path: '', component: __WEBPACK_IMPORTED_MODULE_2__home_page_home_page_component__["a" /* HomePageComponent */] },
+    { path: '', component: __WEBPACK_IMPORTED_MODULE_3__login_page_login_page_component__["a" /* LoginPageComponent */] },
     { path: 'login-page', component: __WEBPACK_IMPORTED_MODULE_3__login_page_login_page_component__["a" /* LoginPageComponent */] },
-    { path: 'home-page', component: __WEBPACK_IMPORTED_MODULE_2__home_page_home_page_component__["a" /* HomePageComponent */] },
+    { path: 'home-page', component: __WEBPACK_IMPORTED_MODULE_2__home_page_home_page_component__["a" /* HomePageComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_4__services_auth_service__["a" /* AuthService */]] },
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
 AppRoutingModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
-        imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forRoot(routes)],
-        exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]]
+        imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */].forRoot(routes)],
+        exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */]]
     })
 ], AppRoutingModule);
 
@@ -189,7 +191,7 @@ AppComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/app.component.html"),
         styles: [__webpack_require__("../../../../../src/app/app.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4_angularfire2_auth__["b" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_angularfire2_auth__["b" /* AngularFireAuth */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3_angularfire2_database__["b" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_angularfire2_database__["b" /* AngularFireDatabase */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_7__services_product_service__["a" /* ProductService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__services_product_service__["a" /* ProductService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_router__["b" /* Router */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4_angularfire2_auth__["b" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_angularfire2_auth__["b" /* AngularFireAuth */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3_angularfire2_database__["b" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_angularfire2_database__["b" /* AngularFireDatabase */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_7__services_product_service__["a" /* ProductService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__services_product_service__["a" /* ProductService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_router__["a" /* Router */]) === "function" && _d || Object])
 ], AppComponent);
 
 var _a, _b, _c, _d;
@@ -293,7 +295,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/home-page/home-page.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav style=\"background-color:darkorange\">\n  <div class=\"nav-wrapper\">\n    <div class=\"col s12\">\n      <a class=\"breadcrumb bc\" style=\"margin-left:1%\" (click)=\"shiftToHome()\">Home</a>\n      <a class=\"breadcrumb bc\" (click)=\"shiftToDepartment()\" *ngIf=\"isDepartmentSelected\">{{currentDepartment}}</a>\n      <a class=\"breadcrumb bc\" (click)='shiftToCategory()' *ngIf=\"isCategorySelected\">{{currentCategory}}</a>\n      <a class=\"breadcrumb bc\" (click)='shiftToSubCategory()' *ngIf=\"issubCategorySelected\">{{currentSubCategory}}</a>\n      <a class=\"breadcrumb bc\" *ngIf=\"showRouterOutlet\">{{currentProduct.productName}}</a>\n    </div>\n  </div>\n</nav>\n<marquee direction=\"right\" width=\"40%\">\n  <h6>{{selectText}}</h6>\n</marquee>\n\n\n\n\n<div *ngIf=\"!isDepartmentSelected && !isCategorySelected && !issubCategorySelected\">\n  <div class=\"row\" id=\"dept\">\n    <div class=\"department\" class=\"col s3 dept1\" style=\"width:24.5%\" *ngFor=\"let x of allDepartmentsList\">\n      <div class=\"animated fadeIn\" (click)=\"selectDepartment($event.target.innerText)\">\n        {{x}}\n      </div>\n    </div>\n  </div>\n</div>\n\n<div *ngIf=\"isDepartmentSelected && !isCategorySelected\">\n  <div class=\"row\" id=\"dept\">\n    <div class=\"category\" class=\"col s3 dept1\" style=\"width:24.5%\" *ngFor=\"let x of specificCategoriesList\">\n      <div class=\"animated fadeIn\" (click)=\"selectCategory($event.target.innerText)\">\n        {{x}}\n      </div>\n    </div>\n  </div>\n</div>\n\n<div *ngIf=\"!issubCategorySelected && isCategorySelected\">\n  <div class=\"row\" id=\"dept\">\n    <div class=\"category\" class=\"col s3 dept1\" style=\"width:24.5%\" *ngFor=\"let x of specificSubCategoriesList\">\n      <div class=\"animated fadeIn\" (click)=\"selectSubCategory($event.target.innerText)\">\n        {{x}}\n      </div>\n    </div>\n  </div>\n</div>\n\n<div class=\"row\" *ngIf=\"displayAllProductsFlag\">\n  <div class=\"col s6 m3\" *ngFor=\"let product of productsToBeDisplayed\">\n    <div class=\"card\">\n      <div class=\"card-image\">\n        <img src={{product.productImage}} style=\"width:250px;height:250px;\" (click)=\"goToSpecificProduct(product)\">\n      </div>\n      <div class=\"card-content\">\n        <span class=\"card-title\" style=\"color:black\">{{product.productName}}</span>\n        <p style=\"color:lightskyblue\">{{product.productLongDescription}}</p>\n      </div>\n      <div class=\"card-action\">\n        <a>{{product.productBrand}}</a>\n      </div>\n    </div>\n  </div>\n</div>\n<div *ngIf=\"noProductsFlag\">{{noProduct}}</div>\n\n\n\n\n\n\n<div class=\"row\" *ngIf=\"showRouterOutlet\">\n  <div class=\"col s6 m3\">\n    <div class=\"card\">\n      <div class=\"card-image\">\n        <img src={{currentProduct.productImage}} style=\"width:350px;height:350px;\">\n      </div>\n      <div class=\"card-action\">\n        <a>{{currentProduct.productBrand}}</a>\n        <div><span class=\"card-title\" style=\"color:black\">{{currentProduct.productName}}</span></div>\n      </div>\n    </div>\n  </div>\n  <div class=\"col s6\">\n    <div class=\"row\">\n      <label class=\"x1\">Description:</label><span style=\"margin-left:1%\">{{currentProduct.productLongDescription}}</span>\n\n    </div>\n    <div class=\"row\">\n      <label class=\"x1\">Features:</label>\n      <ul class=\"collection\">\n        <li *ngFor=\"let x of currentProduct.productFeatures\" class=\"collection-item\">{{x}}</li>\n      </ul>\n    </div>\n    <div class=\"row\">\n      <label class=\"x1\">Brand:</label><span style=\"margin-left:1%\">{{currentProduct.productBrand}}</span>\n    </div>\n    <div class=\"row\">\n      <label class=\"x1\">Name:</label><span style=\"margin-left:1%\">{{currentProduct.productName}}</span>\n    </div>\n    <div class=\"row\">\n      <label class=\"x1\">Price:</label><span style=\"margin-left:1%\">{{currentProduct.productCurrentPrice}}</span>\n    </div>\n    <div class=\"row\">\n      <label class=\"x1\">Short Desc.,:</label><span style=\"margin-left:1%\">{{currentProduct.productShortDescription}}</span>\n    </div>\n  </div>\n</div>"
+module.exports = "<nav style=\"background-color:darkorange\">\n  <div class=\"nav-wrapper\">\n    <div class=\"col s12\">\n      <a class=\"breadcrumb bc\" style=\"margin-left:1%\" (click)=\"shiftToHome()\">Home</a>\n      <a class=\"breadcrumb bc\" (click)=\"shiftToDepartment()\" *ngIf=\"isDepartmentSelected\">{{currentDepartment}}</a>\n      <a class=\"breadcrumb bc\" (click)='shiftToCategory()' *ngIf=\"isCategorySelected\">{{currentCategory}}</a>\n      <a class=\"breadcrumb bc\" (click)='shiftToSubCategory()' *ngIf=\"issubCategorySelected\">{{currentSubCategory}}</a>\n      <a class=\"breadcrumb bc\" *ngIf=\"showRouterOutlet\">{{currentProduct.productName}}</a>\n      <ul id=\"nav-mobile\" class=\"right hide-on-med-and-down\">\n      <!--   <div class=\"chip\">\n    <img src=\"{{photoUrl}}\">\n    {{userName}}\n  </div> -->\n  <li>{{userName}}</li>\n        <li><a (click)=\"logout()\">LogOut</a></li>\n      </ul>\n    </div>\n  </div>\n</nav>\n\n<marquee direction=\"right\" width=\"40%\">\n  <h6>{{selectText}}</h6>\n</marquee>\n\n\n\n\n<div *ngIf=\"!isDepartmentSelected && !isCategorySelected && !issubCategorySelected\">\n  <div class=\"row\" id=\"dept\">\n    <div class=\"department\" class=\"col s3 dept1\" style=\"width:24.5%\" *ngFor=\"let x of allDepartmentsList\">\n      <div class=\"animated fadeIn\" (click)=\"selectDepartment($event.target.innerText)\">\n        {{x}}\n      </div>\n    </div>\n  </div>\n</div>\n\n<div *ngIf=\"isDepartmentSelected && !isCategorySelected\">\n  <div class=\"row\" id=\"dept\">\n    <div class=\"category\" class=\"col s3 dept1\" style=\"width:24.5%\" *ngFor=\"let x of specificCategoriesList\">\n      <div class=\"animated fadeIn\" (click)=\"selectCategory($event.target.innerText)\">\n        {{x}}\n      </div>\n    </div>\n  </div>\n</div>\n\n<div *ngIf=\"!issubCategorySelected && isCategorySelected\">\n  <div class=\"row\" id=\"dept\">\n    <div class=\"category\" class=\"col s3 dept1\" style=\"width:24.5%\" *ngFor=\"let x of specificSubCategoriesList\">\n      <div class=\"animated fadeIn\" (click)=\"selectSubCategory($event.target.innerText)\">\n        {{x}}\n      </div>\n    </div>\n  </div>\n</div>\n\n<div class=\"row\" *ngIf=\"displayAllProductsFlag\">\n  <div class=\"col s6 m3\" *ngFor=\"let product of productsToBeDisplayed\">\n    <div class=\"card\">\n      <div class=\"card-image\">\n        <img src={{product.productImage}} style=\"width:250px;height:250px;\" (click)=\"goToSpecificProduct(product)\">\n      </div>\n      <div class=\"card-content\">\n        <span class=\"card-title\" style=\"color:black\">{{product.productName}}</span>\n        <p style=\"color:lightskyblue\">{{product.productLongDescription}}</p>\n      </div>\n      <div class=\"card-action\">\n        <a>{{product.productBrand}}</a>\n      </div>\n    </div>\n  </div>\n</div>\n<div *ngIf=\"noProductsFlag\">{{noProduct}}</div>\n\n\n\n\n\n\n<div class=\"row\" *ngIf=\"showRouterOutlet\">\n  <div class=\"col s6 m3\">\n    <div class=\"card\">\n      <div class=\"card-image\">\n        <img src={{currentProduct.productImage}} style=\"width:350px;height:350px;\">\n      </div>\n      <div class=\"card-action\">\n        <a>{{currentProduct.productBrand}}</a>\n        <div><span class=\"card-title\" style=\"color:black\">{{currentProduct.productName}}</span></div>\n      </div>\n    </div>\n  </div>\n  <div class=\"col s6\">\n    <div class=\"row\">\n      <label class=\"x1\">Description:</label><span style=\"margin-left:1%\">{{currentProduct.productLongDescription}}</span>\n\n    </div>\n    <div class=\"row\">\n      <label class=\"x1\">Features:</label>\n      <ul class=\"collection\">\n        <li *ngFor=\"let x of currentProduct.productFeatures\" class=\"collection-item\">{{x}}</li>\n      </ul>\n    </div>\n    <div class=\"row\">\n      <label class=\"x1\">Brand:</label><span style=\"margin-left:1%\">{{currentProduct.productBrand}}</span>\n    </div>\n    <div class=\"row\">\n      <label class=\"x1\">Name:</label><span style=\"margin-left:1%\">{{currentProduct.productName}}</span>\n    </div>\n    <div class=\"row\">\n      <label class=\"x1\">Price:</label><span style=\"margin-left:1%\">{{currentProduct.productCurrentPrice}}</span>\n    </div>\n    <div class=\"row\">\n      <label class=\"x1\">Short Desc.,:</label><span style=\"margin-left:1%\">{{currentProduct.productShortDescription}}</span>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -307,6 +309,8 @@ module.exports = "<nav style=\"background-color:darkorange\">\n  <div class=\"na
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_product__ = __webpack_require__("../../../../../src/app/models/product.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_product_service__ = __webpack_require__("../../../../../src/app/services/product.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angularfire2_auth__ = __webpack_require__("../../../../angularfire2/auth.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePageComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -323,8 +327,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 let HomePageComponent = class HomePageComponent {
-    constructor(router, db, fb, _productService) {
+    constructor(afAuth, auth, router, db, fb, _productService) {
+        this.afAuth = afAuth;
+        this.auth = auth;
         this.router = router;
         this.db = db;
         this.fb = fb;
@@ -346,6 +354,8 @@ let HomePageComponent = class HomePageComponent {
         this.showRouterOutlet = false;
         this.displayAllProductsFlag = false;
         this.noProductsFlag = false;
+        this.photoUrl = this.auth.photoUrl;
+        this.userName = this.auth.userName;
         this.selectText = 'Select any Department to get Started';
         this.fb.fetchDepartments().subscribe(data => {
             //console.log(data);
@@ -356,6 +366,13 @@ let HomePageComponent = class HomePageComponent {
             }
             ////console.log(this.allDepartmentsList);
         });
+    }
+    logout() {
+        this.afAuth.auth.signOut();
+        /*   this.imageUrl = "";
+          this.userName = "";
+          this.isLoggedIn= false; */
+        this.router.navigateByUrl("login-page");
     }
     selectDepartment(value) {
         this.isDepartmentSelected = true;
@@ -468,10 +485,10 @@ HomePageComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/home-page/home-page.component.html"),
         styles: [__webpack_require__("../../../../../src/app/home-page/home-page.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["b" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["b" /* AngularFireDatabase */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__services_firebase_service__["a" /* FirebaseService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_firebase_service__["a" /* FirebaseService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__services_product_service__["a" /* ProductService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__services_product_service__["a" /* ProductService */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_6_angularfire2_auth__["b" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6_angularfire2_auth__["b" /* AngularFireAuth */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_7__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__services_auth_service__["a" /* AuthService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["b" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["b" /* AngularFireDatabase */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1__services_firebase_service__["a" /* FirebaseService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_firebase_service__["a" /* FirebaseService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_5__services_product_service__["a" /* ProductService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__services_product_service__["a" /* ProductService */]) === "function" && _f || Object])
 ], HomePageComponent);
 
-var _a, _b, _c, _d;
+var _a, _b, _c, _d, _e, _f;
 //# sourceMappingURL=home-page.component.js.map
 
 /***/ }),
@@ -497,7 +514,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/login-page/login-page.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<button mdl-button mdl-button-type=\"raised\" mdl-ripple (click)=\"login()\" *ngIf=\"!(user | async)?.uid\">Login</button>\n  \n\n\n  <nav *ngIf=\"(user | async)?.uid\">\n    <div class=\"nav-wrapper\">\n       <div class=\"chip\" style=\"width:12%\">\n    {{userName}}\n  </div>\n    \n      <ul id=\"nav-mobile\" class=\"right hide-on-med-and-down\">\n        <li><a (click)=\"logout()\">LogOut</a></li>\n        <li><a href=\"badges.html\">Components</a></li>\n      </ul>\n    </div>\n  </nav>"
+module.exports = "\n<button mdl-button mdl-button-type=\"raised\" mdl-ripple (click)=\"login()\" *ngIf=\"!(user | async)?.uid\">Login</button>\n  \n\n\n  <nav *ngIf=\"(user | async)?.uid\">\n    <div class=\"nav-wrapper\">\n       <div class=\"chip\" style=\"width:12%\">\n    {{userName}}\n  </div>\n    \n      <ul id=\"nav-mobile\" class=\"right hide-on-med-and-down\">\n        <li></li>\n        <li><a href=\"badges.html\">Components</a></li>\n      </ul>\n    </div>\n  </nav>"
 
 /***/ }),
 
@@ -506,11 +523,12 @@ module.exports = "\n<button mdl-button mdl-button-type=\"raised\" mdl-ripple (cl
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__ = __webpack_require__("../../../../angularfire2/database.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__("../../../../angularfire2/auth.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase_app__ = __webpack_require__("../../../../firebase/app.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase_app___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_firebase_app__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__ = __webpack_require__("../../../../angularfire2/database.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__("../../../../angularfire2/auth.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_firebase_app__ = __webpack_require__("../../../../firebase/app.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_firebase_app___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_firebase_app__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPageComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -526,23 +544,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 let LoginPageComponent = class LoginPageComponent {
-    constructor(afAuth, af, router) {
+    constructor(afAuth, af, auth, router) {
         this.afAuth = afAuth;
         this.af = af;
+        this.auth = auth;
         this.router = router;
         this.user = this.afAuth.authState;
+        this.afAuth.authState.subscribe(auth => {
+            if (auth) {
+                this.router.navigateByUrl('home-page');
+            }
+        });
     }
     ngOnInit() {
     }
     login() {
-        this.afAuth.auth.signInWithPopup(new __WEBPACK_IMPORTED_MODULE_4_firebase_app__["auth"].GoogleAuthProvider());
-        let fireBaseUser = __WEBPACK_IMPORTED_MODULE_4_firebase_app__["auth"]().currentUser;
+        this.afAuth.auth.signInWithPopup(new __WEBPACK_IMPORTED_MODULE_5_firebase_app__["auth"].GoogleAuthProvider());
+        let fireBaseUser = __WEBPACK_IMPORTED_MODULE_5_firebase_app__["auth"]().currentUser;
         this.user.subscribe(data => {
             console.log(data);
             if (data != null) {
                 this.imageUrl = data.photoURL;
                 this.userName = data.displayName;
+                this.auth.userName = data.displayName;
+                this.auth.photoUrl = data.photoURL;
                 console.log('Im in');
                 this.isLoggedIn = true;
                 this.router.navigateByUrl('home-page');
@@ -559,7 +586,7 @@ let LoginPageComponent = class LoginPageComponent {
         this.imageUrl = "";
         this.userName = "";
         this.isLoggedIn = false;
-        this.router.navigateByUrl("home-page");
+        this.router.navigateByUrl("login-page");
     }
 };
 LoginPageComponent = __decorate([
@@ -568,10 +595,10 @@ LoginPageComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/login-page/login-page.component.html"),
         styles: [__webpack_require__("../../../../../src/app/login-page/login-page.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["b" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["b" /* AngularFireAuth */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["b" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["b" /* AngularFireDatabase */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["b" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["b" /* AngularFireAuth */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["b" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["b" /* AngularFireDatabase */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* Router */]) === "function" && _d || Object])
 ], LoginPageComponent);
 
-var _a, _b, _c;
+var _a, _b, _c, _d;
 //# sourceMappingURL=login-page.component.js.map
 
 /***/ }),
@@ -598,13 +625,53 @@ class Product {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-class AuthService {
-    constructor() {
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angularfire2_auth__ = __webpack_require__("../../../../angularfire2/auth.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__ = __webpack_require__("../../../../rxjs/Rx.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_do__ = __webpack_require__("../../../../rxjs/add/operator/do.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_do___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_do__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_take__ = __webpack_require__("../../../../rxjs/add/operator/take.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_take___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_take__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthService; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+let AuthService = class AuthService {
+    constructor(auth, router) {
+        this.auth = auth;
+        this.router = router;
         this.currentUser = null;
     }
-}
-/* harmony export (immutable) */ __webpack_exports__["a"] = AuthService;
+    canActivate() {
+        return __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__["Observable"].from(this.auth.authState).take(1).map(state => !!state).do(authenticated => {
+            if (!authenticated)
+                this.router.navigateByUrl('login-page');
+        });
+    }
+};
+AuthService = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Injectable"])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0_angularfire2_auth__["b" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_angularfire2_auth__["b" /* AngularFireAuth */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object])
+], AuthService);
 
+var _a, _b;
 //# sourceMappingURL=auth.service.js.map
 
 /***/ }),
