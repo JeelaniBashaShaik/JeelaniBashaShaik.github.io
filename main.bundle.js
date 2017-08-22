@@ -21,7 +21,8 @@ webpackEmptyContext.id = "../../../../../src async recursive";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_page_home_page_component__ = __webpack_require__("../../../../../src/app/home-page/home-page.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login_page_login_page_component__ = __webpack_require__("../../../../../src/app/login-page/login-page.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__customer_customer_component__ = __webpack_require__("../../../../../src/app/customer/customer.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppRoutingModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -34,10 +35,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 const routes = [
     { path: '', component: __WEBPACK_IMPORTED_MODULE_3__login_page_login_page_component__["a" /* LoginPageComponent */] },
     { path: 'login-page', component: __WEBPACK_IMPORTED_MODULE_3__login_page_login_page_component__["a" /* LoginPageComponent */] },
-    { path: 'home-page', component: __WEBPACK_IMPORTED_MODULE_2__home_page_home_page_component__["a" /* HomePageComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_4__services_auth_service__["a" /* AuthService */]] },
+    { path: 'home-page', component: __WEBPACK_IMPORTED_MODULE_2__home_page_home_page_component__["a" /* HomePageComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_5__services_auth_service__["a" /* AuthService */]] },
+    { path: 'customer', component: __WEBPACK_IMPORTED_MODULE_4__customer_customer_component__["a" /* CustomerComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_5__services_auth_service__["a" /* AuthService */]] },
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
@@ -73,7 +76,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<h6 (click)=\"goToHomePage()\" style=\"cursor:pointer\">RJ Shopping Demo</h6>\n\n\n\n\n\n<!--   <nav *ngIf=\"(user | async)?.uid\">\n    <div *ngIf=\"(user | async)?.uid\" class=\"nav-wrapper\">\n    <div class=\"chip\">\n    \n    {{userName}}\n  </div>  -->\n <!--  {{userName}} -->\n     <!-- <img src={{imageUrl}} style=\"border-radius:50%;margin-top:1%;margin-left:1%\" height=\"25 !important\" width=\"25 !important\"> -->\n      <!-- <ul id=\"nav-mobile\" class=\"right hide-on-med-and-down\">\n        <li><a (click)=\"logout()\">LogOut</a></li>\n        <li><a href=\"badges.html\">Components</a></li>\n      </ul>\n    </div>\n  </nav>\n<button (click)=\"login()\" *ngIf=\"!(user | async)?.uid\">Login</button> -->\n<router-outlet></router-outlet>\n\n\n<!-- <footer class=\"page-footer\">\n          <div class=\"footer-copyright\">\n            © 2017 RJ Shopping Demo \n          </div>\n        </footer> -->"
+module.exports = "\n<!-- <h6 (click)=\"goToHomePage()\" style=\"cursor:pointer\">RJ Shopping Demo</h6> -->\n\n\n\n\n\n<!--   <nav *ngIf=\"(user | async)?.uid\">\n    <div *ngIf=\"(user | async)?.uid\" class=\"nav-wrapper\">\n    <div class=\"chip\">\n    \n    {{userName}}\n  </div>  -->\n <!--  {{userName}} -->\n     <!-- <img src={{imageUrl}} style=\"border-radius:50%;margin-top:1%;margin-left:1%\" height=\"25 !important\" width=\"25 !important\"> -->\n      <!-- <ul id=\"nav-mobile\" class=\"right hide-on-med-and-down\">\n        <li><a (click)=\"logout()\">LogOut</a></li>\n        <li><a href=\"badges.html\">Components</a></li>\n      </ul>\n    </div>\n  </nav>\n<button (click)=\"login()\" *ngIf=\"!(user | async)?.uid\">Login</button> -->\n<router-outlet></router-outlet>\n\n\n<!-- <footer class=\"page-footer\">\n          <div class=\"footer-copyright\">\n            © 2017 RJ Shopping Demo \n          </div>\n        </footer> -->"
 
 /***/ }),
 
@@ -205,19 +208,25 @@ var _a, _b, _c, _d;
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_routing_module__ = __webpack_require__("../../../../../src/app/app-routing.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__swimlane_ngx_datatable__ = __webpack_require__("../../../../@swimlane/ngx-datatable/release/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__swimlane_ngx_datatable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__swimlane_ngx_datatable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__login_page_login_page_component__ = __webpack_require__("../../../../../src/app/login-page/login-page.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__home_page_home_page_component__ = __webpack_require__("../../../../../src/app/home-page/home-page.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_angularfire2__ = __webpack_require__("../../../../angularfire2/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__services_firebase_service__ = __webpack_require__("../../../../../src/app/services/firebase.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__services_product_service__ = __webpack_require__("../../../../../src/app/services/product.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_angularfire2_database__ = __webpack_require__("../../../../angularfire2/database.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_angularfire2_auth__ = __webpack_require__("../../../../angularfire2/auth.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_routing_module__ = __webpack_require__("../../../../../src/app/app-routing.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angular2_materialize__ = __webpack_require__("../../../../angular2-materialize/dist/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ng2_dragula__ = __webpack_require__("../../../../ng2-dragula/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ng2_dragula___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_ng2_dragula__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_ng2_dnd__ = __webpack_require__("../../../../ng2-dnd/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__swimlane_ngx_datatable__ = __webpack_require__("../../../../@swimlane/ngx-datatable/release/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__swimlane_ngx_datatable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__swimlane_ngx_datatable__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__login_page_login_page_component__ = __webpack_require__("../../../../../src/app/login-page/login-page.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__home_page_home_page_component__ = __webpack_require__("../../../../../src/app/home-page/home-page.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_angularfire2__ = __webpack_require__("../../../../angularfire2/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__services_firebase_service__ = __webpack_require__("../../../../../src/app/services/firebase.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__services_product_service__ = __webpack_require__("../../../../../src/app/services/product.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_angularfire2_database__ = __webpack_require__("../../../../angularfire2/database.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_angularfire2_auth__ = __webpack_require__("../../../../angularfire2/auth.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__customer_customer_component__ = __webpack_require__("../../../../../src/app/customer/customer.component.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -229,7 +238,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
+
+
+
 //import { MdlModule } from '@angular-mdl/core';
+
 
 
 
@@ -254,23 +269,204 @@ let AppModule = class AppModule {
 AppModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */],
-            __WEBPACK_IMPORTED_MODULE_6__login_page_login_page_component__["a" /* LoginPageComponent */],
-            __WEBPACK_IMPORTED_MODULE_7__home_page_home_page_component__["a" /* HomePageComponent */]
+            __WEBPACK_IMPORTED_MODULE_9__app_component__["a" /* AppComponent */],
+            __WEBPACK_IMPORTED_MODULE_10__login_page_login_page_component__["a" /* LoginPageComponent */],
+            __WEBPACK_IMPORTED_MODULE_11__home_page_home_page_component__["a" /* HomePageComponent */],
+            __WEBPACK_IMPORTED_MODULE_18__customer_customer_component__["a" /* CustomerComponent */]
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["BrowserModule"], __WEBPACK_IMPORTED_MODULE_4__swimlane_ngx_datatable__["NgxDatatableModule"],
-            __WEBPACK_IMPORTED_MODULE_2__app_routing_module__["a" /* AppRoutingModule */], __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* HttpModule */], __WEBPACK_IMPORTED_MODULE_8_angularfire2__["a" /* AngularFireModule */].initializeApp(firebaseConfig),
-            __WEBPACK_IMPORTED_MODULE_12_angularfire2_database__["a" /* AngularFireDatabaseModule */],
-            __WEBPACK_IMPORTED_MODULE_13_angularfire2_auth__["a" /* AngularFireAuthModule */]
+            __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["BrowserModule"], __WEBPACK_IMPORTED_MODULE_8__swimlane_ngx_datatable__["NgxDatatableModule"], __WEBPACK_IMPORTED_MODULE_5_angular2_materialize__["a" /* MaterializeModule */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_3__app_routing_module__["a" /* AppRoutingModule */], __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* HttpModule */], __WEBPACK_IMPORTED_MODULE_12_angularfire2__["a" /* AngularFireModule */].initializeApp(firebaseConfig),
+            __WEBPACK_IMPORTED_MODULE_16_angularfire2_database__["a" /* AngularFireDatabaseModule */], __WEBPACK_IMPORTED_MODULE_7_ng2_dnd__["a" /* DndModule */],
+            __WEBPACK_IMPORTED_MODULE_17_angularfire2_auth__["a" /* AngularFireAuthModule */], __WEBPACK_IMPORTED_MODULE_6_ng2_dragula__["DragulaModule"]
         ],
-        providers: [__WEBPACK_IMPORTED_MODULE_9__services_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_10__services_firebase_service__["a" /* FirebaseService */], __WEBPACK_IMPORTED_MODULE_11__services_product_service__["a" /* ProductService */]],
+        providers: [__WEBPACK_IMPORTED_MODULE_13__services_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_14__services_firebase_service__["a" /* FirebaseService */], __WEBPACK_IMPORTED_MODULE_15__services_product_service__["a" /* ProductService */], __WEBPACK_IMPORTED_MODULE_7_ng2_dnd__["b" /* DragDropService */], __WEBPACK_IMPORTED_MODULE_7_ng2_dnd__["c" /* DragDropConfig */]],
         schemas: [__WEBPACK_IMPORTED_MODULE_1__angular_core__["CUSTOM_ELEMENTS_SCHEMA"]],
-        bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]]
+        bootstrap: [__WEBPACK_IMPORTED_MODULE_9__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
 
 //# sourceMappingURL=app.module.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/customer/customer.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".noHover:hover{\r\nbackground-color: darkorange;\r\ncursor: pointer;\r\nfont-size: 120%;\r\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/customer/customer.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "\n\n<nav class=\"nav-extended\" style=\"background-color:darkorange\">\n    <div class=\"nav-wrapper\">\n      <a class=\"brand-logo\">Manage Your Details</a>\n      <ul id=\"nav-mobile\" class=\"right hide-on-med-and-down\">\n        <li><a class=\"noHover\" (click)=\"goToHome()\">Home Page</a></li>\n        <li><a class=\"noHover\" (click)=\"logout()\">LogOut</a></li>\n      </ul>\n    </div>\n    <div class=\"nav-content\">\n      <ul class=\"tabs tabs-transparent\" materialize=\"tabs\">\n        <li class=\"tab\"><a href=\"#test1\">Basic Details</a></li>\n        <li class=\"tab\"><a href=\"#test2\">My Cart</a></li>\n        <li class=\"tab\"><a href=\"#test3\">Orders</a></li>\n      <!--   <li class=\"tab\"><a href=\"#test4\">Test 4</a></li> -->\n      </ul>\n    </div>\n  </nav>\n\n\n<div id=\"test2\" class=\"col s12\"><div class=\"row\">\n<!-- \n    <div class=\"col-sm-3\">\n        <div class=\"panel panel-success\">\n            <div class=\"panel-heading\">Available products</div>\n            <div class=\"panel-body\">\n                <div *ngFor=\"let product of availableProducts\" class=\"panel panel-default\"\n                    dnd-draggable [dragEnabled]=\"product.quantity>0\" [dragData]=\"product\" (onDragSuccess)=\"orderedProduct($event)\" [dropZones]=\"['demo1']\">\n                    <div class=\"panel-body\">\n                        <div [hidden]=\"product.quantity===0\">{{product.name}} - \\${{product.cost}}<br>(available: {{product.quantity}})</div>\n                        <div [hidden]=\"product.quantity>0\"><del>{{product.name}}</del><br>(NOT available)</div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"col-sm-3\">\n        <div dnd-droppable (onDropSuccess)=\"addToBasket($event)\" [dropZones]=\"['demo1']\" class=\"panel panel-info\">\n            <div class=\"panel-heading\">Shopping Basket<br>(to pay: \\${{totalCost()}})</div>\n            <div class=\"panel-body\">\n                <div *ngFor=\"let product of shoppingBasket\" class=\"panel panel-default\">\n                    <div class=\"panel-body\">\n                    {{product.name}}<br>(ordered: {{product.quantity}}<br>cost: \\${{product.cost * product.quantity}})\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>-->\n</div></div>\n  <div id=\"test1\" class=\"col s12\">\n   <!--  <input type=\"text\" [(ngModel)]=\"customer.fullName\" placeholder=\"Full Name\"> -->\n     <!--  <input id=\"changedValue\" type=\"text\" name=\"changedValue\" [(ngModel)]=\"customer.fullName\" class=\"validate\">  -->\n      <div class = \"row\">\n          <div class=\"col s2\">\n              <img src=\"{{photoUrl}}\" height=\"150\" width=\"150\" style=\"margin-top:1%\">\n          </div>\n          <div class=\"input-field col s3\" style=\"margin-top:2%\">\n           <i class=\"material-icons prefix\">account_circle</i>\n           <input id=\"icon_prefix\" type=\"text\" disabled [(ngModel)]=\"customerToUpdate.displayName\">\n           <i class=\"material-icons prefix\">email</i>\n           <input id=\"icon_prefix\" type=\"text\" disabled [(ngModel)]=\"customerToUpdate.email\">\n          <i class=\"material-icons prefix\">phone</i>\n          <input id=\"icon_telephone\" type=\"tel\" [(ngModel)]=\"customerToUpdate.phoneNumber\" class=\"validate\">\n            <!-- <input type=\"text\" class=\"datepicker\" materialize=\"pickadate\"> -->\n           \n        </div>\n        <div class=\"col s4\"></div>\n        <div class=\"col s2\" *ngIf=\"!noAddressFlag\">\n            Shipping Address:\n            <div class=\"row\" style=\"margin-bottom:unset\">\n            <label>{{customerToUpdate.displayName}}</label></div>\n         <div class=\"row\" style=\"margin-bottom:unset\">   <label>{{address.flat_HouseNo}}</label></div>\n          <div class=\"row\" style=\"margin-bottom:unset\">  <label>{{address.street}}</label></div>\n         <div class=\"row\" style=\"margin-bottom:unset\">   <label>{{address.city}}</label></div>\n         <div class=\"row\" style=\"margin-bottom:unset\">   <label>{{address.pincode}}</label></div>\n         <div class=\"row\" style=\"margin-bottom:unset\">   <label>{{address.state}}</label></div>\n         <div class=\"row\" style=\"margin-bottom:unset\">   <label>Phone:{{customerToUpdate.phoneNumber}}</label></div>\n        </div>\n      </div>\n    <div clas=\"row\">\n        <div class=\"col s5\" *ngIf=\"!noAddressFlag\">\n              <div class=\"row\">\n                  <div class=\"input-field col s3\" style=\"height:22px\">\n                    <i class=\"material-icons prefix\">home</i>\n                    <input id=\"icon_home\" type=\"text\" [(ngModel)]=\"address.flat_HouseNo\" class=\"validate\">\n                  </div>\n              </div>\n              <div class=\"row\">\n                  <div class=\"input-field col s3\" style=\"height:22px\">\n                    <i class=\"material-icons prefix\">transfer_within_a_station</i>\n                    <input id=\"street\" type=\"text\" [(ngModel)]=\"address.street\" class=\"validate\">\n                  </div>\n              </div>\n              <div class=\"row\">\n                  <div class=\"input-field col s3\" style=\"height:22px\">\n                    <i class=\"material-icons prefix\">location_city</i>\n                    <input id=\"icon_city\" type=\"text\" [(ngModel)]=\"address.city\" class=\"validate\">\n                  </div>\n              </div>\n              <div class=\"row\">\n                  <div class=\"input-field col s3\" style=\"height:22px\">\n                    <i class=\"material-icons prefix\">fiber_pin</i>\n                    <input id=\"icon_code\" type=\"text\" [(ngModel)]=\"address.pincode\" class=\"validate\">\n                  </div>\n              </div>\n              <div class=\"row\">\n                  <div class=\"input-field col s3\" style=\"height:22px\">\n                    <i class=\"material-icons prefix\">explore</i>\n                    <input id=\"icon_state\" type=\"text\" [(ngModel)]=\"address.state\" class=\"validate\">\n                  </div>\n              </div>\n\n                </div>\n             </div>\n      </div>\n        <div class=\"row\">\n            <div *ngIf=\"noAddressFlag else showAvailableAddresses\"><p style=\"margin-left:2%\">It seems you have not added any address yet. Go Ahead, add an Address</p>\n             <div class=\"row\">\n                <div class=\"input-field col s2\">\n                    <i class=\"material-icons prefix\">home</i> \n                    <input type=\"text\" [(ngModel)]=\"address.flat_HouseNo\" placeholder=\"Flat/House #\" class=\"validate\">\n                </div>\n                <div class=\"input-field col s2\">\n                    <i class=\"material-icons prefix\">transfer_within_a_station</i> \n                    <input type=\"text\" [(ngModel)]=\"address.street\" placeholder=\"Street\" class=\"validate\">\n                </div>\n                <div class=\"input-field col s2\">\n                    <i class=\"material-icons prefix\">location_city</i> \n                    <input type=\"text\" [(ngModel)]=\"address.city\" placeholder=\"City\" class=\"validate\">\n                </div>\n                <div class=\"input-field col s2\">\n                    <i class=\"material-icons prefix\">fiber_pin</i> \n                    <input type=\"text\" [(ngModel)]=\"address.pincode\" placeholder=\"Pincode\" class=\"validate\">\n                </div>\n                <div class=\"input-field col s2\">\n                    <i class=\"material-icons prefix\">explore</i> \n                    <input type=\"text\" [(ngModel)]=\"address.state\" placeholder=\"State\" class=\"validate\">\n                </div>\n\n                \n             </div>             \n            </div>\n        \n          </div>\n      \n<button (click)=\"updateCustomer()\">Update</button>\n  <div id=\"test3\" class=\"col s12\">Test 3</div>\n  \n\n\n  "
+
+/***/ }),
+
+/***/ "../../../../../src/app/customer/customer.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_Customer__ = __webpack_require__("../../../../../src/app/models/Customer.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_database__ = __webpack_require__("../../../../angularfire2/database.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_auth__ = __webpack_require__("../../../../angularfire2/auth.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__models_address__ = __webpack_require__("../../../../../src/app/models/address.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CustomerComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+let CustomerComponent = class CustomerComponent {
+    constructor(router, db, afAuth) {
+        this.router = router;
+        this.db = db;
+        this.afAuth = afAuth;
+        this.address = new __WEBPACK_IMPORTED_MODULE_5__models_address__["a" /* Address */]();
+        this.customerToUpdate = new __WEBPACK_IMPORTED_MODULE_2__models_Customer__["a" /* Customer */]();
+        this.customer = new __WEBPACK_IMPORTED_MODULE_2__models_Customer__["a" /* Customer */]();
+        this.allGenders = ['Male', 'Female', 'Others'];
+        this.availableProducts = [];
+        this.shoppingBasket = [];
+        this.availableProducts.push(new Product('Blue Shoes', 3, 35));
+        this.availableProducts.push(new Product('Good Jacket', 1, 90));
+        this.availableProducts.push(new Product('Red Shirt', 5, 12));
+        this.availableProducts.push(new Product('Blue Jeans', 4, 60));
+        this.customersList = this.db.list('/Customers_List');
+        this.afAuth.authState.subscribe(data => {
+            this.customer.displayName = data.displayName;
+            this.customer.email = data.email;
+            this.photoUrl = data.photoURL;
+        });
+    }
+    selectGender(gender) {
+        //console.log(gender);
+    }
+    ngOnInit() {
+        this.address.city = '';
+        this.address.flat_HouseNo = '';
+        this.address.pincode = '';
+        this.address.street = '';
+        this.address.state = '';
+        var query = this.db.database.ref('/Customers_List').orderByChild('email').equalTo(this.customer.email);
+        var x = query.once("value", (snapshot) => {
+            //console.log(snapshot.val());
+            this.dat = snapshot.val();
+            var xKeys = Object.keys(this.dat);
+            this.customerToUpdate = this.dat[xKeys[0]];
+            //this.noAddressFlag = true;
+            //console.log(this.customerToUpdate.address[0]);
+            if (!this.customerToUpdate.hasOwnProperty('address')) {
+                this.noAddressFlag = true;
+            }
+            else {
+                this.address = this.customerToUpdate.address[0];
+            }
+            //console.log(this.customerToUpdate);
+        });
+        this.jqueryDependencies();
+    }
+    jqueryDependencies() {
+        $('.datepicker').pickadate({
+            selectMonths: true,
+            selectYears: 15,
+            today: 'Today',
+            clear: 'Clear',
+            close: 'Ok',
+            closeOnSelect: false // Close upon selecting a date,
+        });
+    }
+    goToHome() {
+        this.router.navigateByUrl('home-page');
+    }
+    updateCustomer() {
+        // //console.log(this.customer);
+        var y;
+        //console.log(this.address);
+        //y = this.customer;
+        this.customerToUpdate.address = [];
+        this.customerToUpdate.address.unshift(this.address);
+        y = this.customerToUpdate;
+        //y.address.unshift(this.address);
+        this.query = this.db.database.ref('/Customers_List').orderByChild('email').equalTo(this.customer.email);
+        var x = this.query.once("child_added", function (snapshot) {
+            snapshot.ref.update(y);
+            //console.log(snapshot.val());
+        });
+    }
+    orderedProduct($event) {
+        let orderedProduct = $event.dragData;
+        orderedProduct.quantity--;
+    }
+    addToBasket($event) {
+        let newProduct = $event.dragData;
+        for (let indx in this.shoppingBasket) {
+            let product = this.shoppingBasket[indx];
+            if (product.name === newProduct.name) {
+                product.quantity++;
+                return;
+            }
+        }
+        this.shoppingBasket.push(new Product(newProduct.name, 1, newProduct.cost));
+        this.shoppingBasket.sort((a, b) => {
+            return a.name.localeCompare(b.name);
+        });
+    }
+    totalCost() {
+        let cost = 0;
+        for (let indx in this.shoppingBasket) {
+            let product = this.shoppingBasket[indx];
+            cost += (product.cost * product.quantity);
+        }
+        return cost;
+    }
+    logout() {
+        this.afAuth.auth.signOut();
+        this.router.navigateByUrl("login-page");
+    }
+};
+CustomerComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-customer',
+        template: __webpack_require__("../../../../../src/app/customer/customer.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/customer/customer.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3_angularfire2_database__["b" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_angularfire2_database__["b" /* AngularFireDatabase */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4_angularfire2_auth__["b" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_angularfire2_auth__["b" /* AngularFireAuth */]) === "function" && _c || Object])
+], CustomerComponent);
+
+class Product {
+    constructor(name, quantity, cost) {
+        this.name = name;
+        this.quantity = quantity;
+        this.cost = cost;
+    }
+}
+var _a, _b, _c;
+//# sourceMappingURL=customer.component.js.map
 
 /***/ }),
 
@@ -282,7 +478,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "#dept{\r\n    border: 1.5px solid darkorange !important;\r\n    padding: 2%;\r\n    margin: 1%;\r\n}\r\n\r\n.dept1{\r\n    border: 1.5px solid mediumseagreen;\r\n    cursor: pointer;\r\n    text-align: center;\r\n    padding: 1%;\r\n    font-size: x-large;\r\n    margin: 0.5%;\r\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);\r\n  text-align: center;\r\n}\r\n\r\n.bc{\r\n    cursor: pointer;\r\n}\r\n\r\n.dept1:hover{\r\n    border: 1.5px solid darkorange;\r\n\r\n}\r\n\r\n\r\n.dept1 {\r\n  position: relative;\r\n  display: inline-block;\r\n  width: 100px;\r\n  height: 100px;\r\n  background-color: #fff;\r\n  border-radius: 5px;\r\n  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);\r\n  border-radius: 5px;\r\n  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);\r\n}\r\n\r\n.dept1::after {\r\n  content: \"\";\r\n  border-radius: 5px;\r\n  position: absolute;\r\n  z-index: -1;\r\n  top: 0;\r\n  left: 0;\r\n  width: 100%;\r\n  height: 100%;\r\n  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);\r\n  opacity: 0;\r\n  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);\r\n}\r\n\r\n.dept1:hover {\r\n  -webkit-transform: scale(0.90, 0.90);\r\n  transform: scale(0.90, 0.90);\r\n}\r\n\r\n.dept1:hover::after {\r\n    opacity: 1;\r\n}\r\n", ""]);
+exports.push([module.i, "#dept{\r\n    border: 1.5px solid darkorange !important;\r\n    padding: 2%;\r\n    margin: 1%;\r\n}\r\n\r\n.dept1{\r\n    border: 1.5px solid mediumseagreen;\r\n    cursor: pointer;\r\n    text-align: center;\r\n    padding: 1%;\r\n    font-size: x-large;\r\n    margin: 0.5%;\r\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);\r\n  text-align: center;\r\n}\r\n\r\n.bc{\r\n    cursor: pointer;\r\n}\r\n\r\n.dept1:hover{\r\n    border: 1.5px solid darkorange;\r\n\r\n}\r\n\r\n\r\n.dept1 {\r\n  position: relative;\r\n  display: inline-block;\r\n  width: 100px;\r\n  height: 100px;\r\n  background-color: #fff;\r\n  border-radius: 5px;\r\n  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);\r\n  border-radius: 5px;\r\n  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);\r\n}\r\n\r\n.dept1::after {\r\n  content: \"\";\r\n  border-radius: 5px;\r\n  position: absolute;\r\n  z-index: -1;\r\n  top: 0;\r\n  left: 0;\r\n  width: 100%;\r\n  height: 100%;\r\n  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);\r\n  opacity: 0;\r\n  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);\r\n}\r\n\r\n.dept1:hover {\r\n  -webkit-transform: scale(0.90, 0.90);\r\n  transform: scale(0.90, 0.90);\r\n}\r\n\r\n.dept1:hover::after {\r\n    opacity: 1;\r\n}\r\n", ""]);
 
 // exports
 
@@ -295,7 +491,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/home-page/home-page.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav style=\"background-color:darkorange\">\n  <div class=\"nav-wrapper\">\n    <div class=\"col s12\">\n      <a class=\"breadcrumb bc\" style=\"margin-left:1%\" (click)=\"shiftToHome()\">Home</a>\n      <a class=\"breadcrumb bc\" (click)=\"shiftToDepartment()\" *ngIf=\"isDepartmentSelected\">{{currentDepartment}}</a>\n      <a class=\"breadcrumb bc\" (click)='shiftToCategory()' *ngIf=\"isCategorySelected\">{{currentCategory}}</a>\n      <a class=\"breadcrumb bc\" (click)='shiftToSubCategory()' *ngIf=\"issubCategorySelected\">{{currentSubCategory}}</a>\n      <a class=\"breadcrumb bc\" *ngIf=\"showRouterOutlet\">{{currentProduct.productName}}</a>\n      <ul id=\"nav-mobile\" class=\"right hide-on-med-and-down\">\n      <!--   <div class=\"chip\">\n    <img src=\"{{photoUrl}}\">\n    {{userName}}\n  </div> -->\n  <li>{{userName}}</li>\n        <li><a (click)=\"logout()\">LogOut</a></li>\n      </ul>\n    </div>\n  </div>\n</nav>\n\n<marquee direction=\"right\" width=\"40%\">\n  <h6>{{selectText}}</h6>\n</marquee>\n\n\n\n\n<div *ngIf=\"!isDepartmentSelected && !isCategorySelected && !issubCategorySelected\">\n  <div class=\"row\" id=\"dept\">\n    <div class=\"department\" class=\"col s3 dept1\" style=\"width:24.5%\" *ngFor=\"let x of allDepartmentsList\">\n      <div class=\"animated fadeIn\" (click)=\"selectDepartment($event.target.innerText)\">\n        {{x}}\n      </div>\n    </div>\n  </div>\n</div>\n\n<div *ngIf=\"isDepartmentSelected && !isCategorySelected\">\n  <div class=\"row\" id=\"dept\">\n    <div class=\"category\" class=\"col s3 dept1\" style=\"width:24.5%\" *ngFor=\"let x of specificCategoriesList\">\n      <div class=\"animated fadeIn\" (click)=\"selectCategory($event.target.innerText)\">\n        {{x}}\n      </div>\n    </div>\n  </div>\n</div>\n\n<div *ngIf=\"!issubCategorySelected && isCategorySelected\">\n  <div class=\"row\" id=\"dept\">\n    <div class=\"category\" class=\"col s3 dept1\" style=\"width:24.5%\" *ngFor=\"let x of specificSubCategoriesList\">\n      <div class=\"animated fadeIn\" (click)=\"selectSubCategory($event.target.innerText)\">\n        {{x}}\n      </div>\n    </div>\n  </div>\n</div>\n\n<div class=\"row\" *ngIf=\"displayAllProductsFlag\">\n  <div class=\"col s6 m3\" *ngFor=\"let product of productsToBeDisplayed\">\n    <div class=\"card\">\n      <div class=\"card-image\">\n        <img src={{product.productImage}} style=\"width:250px;height:250px;\" (click)=\"goToSpecificProduct(product)\">\n      </div>\n      <div class=\"card-content\">\n        <span class=\"card-title\" style=\"color:black\">{{product.productName}}</span>\n        <p style=\"color:lightskyblue\">{{product.productLongDescription}}</p>\n      </div>\n      <div class=\"card-action\">\n        <a>{{product.productBrand}}</a>\n      </div>\n    </div>\n  </div>\n</div>\n<div *ngIf=\"noProductsFlag\">{{noProduct}}</div>\n\n\n\n\n\n\n<div class=\"row\" *ngIf=\"showRouterOutlet\">\n  <div class=\"col s6 m3\">\n    <div class=\"card\">\n      <div class=\"card-image\">\n        <img src={{currentProduct.productImage}} style=\"width:350px;height:350px;\">\n      </div>\n      <div class=\"card-action\">\n        <a>{{currentProduct.productBrand}}</a>\n        <div><span class=\"card-title\" style=\"color:black\">{{currentProduct.productName}}</span></div>\n      </div>\n    </div>\n  </div>\n  <div class=\"col s6\">\n    <div class=\"row\">\n      <label class=\"x1\">Description:</label><span style=\"margin-left:1%\">{{currentProduct.productLongDescription}}</span>\n\n    </div>\n    <div class=\"row\">\n      <label class=\"x1\">Features:</label>\n      <ul class=\"collection\">\n        <li *ngFor=\"let x of currentProduct.productFeatures\" class=\"collection-item\">{{x}}</li>\n      </ul>\n    </div>\n    <div class=\"row\">\n      <label class=\"x1\">Brand:</label><span style=\"margin-left:1%\">{{currentProduct.productBrand}}</span>\n    </div>\n    <div class=\"row\">\n      <label class=\"x1\">Name:</label><span style=\"margin-left:1%\">{{currentProduct.productName}}</span>\n    </div>\n    <div class=\"row\">\n      <label class=\"x1\">Price:</label><span style=\"margin-left:1%\">{{currentProduct.productCurrentPrice}}</span>\n    </div>\n    <div class=\"row\">\n      <label class=\"x1\">Short Desc.,:</label><span style=\"margin-left:1%\">{{currentProduct.productShortDescription}}</span>\n    </div>\n  </div>\n</div>"
+module.exports = "<!-- <nav style=\"background-color:darkorange\">\n  <div class=\"nav-wrapper\">\n    <div class=\"col s12\">\n      <a class=\"breadcrumb bc\" style=\"margin-left:1%\" (click)=\"shiftToHome()\">Home</a>\n      <a class=\"breadcrumb bc\" (click)=\"shiftToDepartment()\" *ngIf=\"isDepartmentSelected\">{{currentDepartment}}</a>\n      <a class=\"breadcrumb bc\" (click)='shiftToCategory()' *ngIf=\"isCategorySelected\">{{currentCategory}}</a>\n      <a class=\"breadcrumb bc\" (click)='shiftToSubCategory()' *ngIf=\"issubCategorySelected\">{{currentSubCategory}}</a>\n      <a class=\"breadcrumb bc\" *ngIf=\"showRouterOutlet\">{{currentProduct.productName}}</a>\n      <ul id=\"nav-mobile\" class=\"right hide-on-med-and-down\"> -->\n      <!--   <div class=\"chip\">\n    <img src=\"{{photoUrl}}\">\n    {{userName}}\n  </div> -->\n <!--  <li (click)=\"goToCustomer()\">Manage Account</li>\n        <li><a (click)=\"logout()\">LogOut</a></li>\n      </ul>\n    </div>\n  </div>\n</nav>\n -->\n\n<nav class=\"nav-extended\" style=\"background-color:darkorange\">\n    <div class=\"nav-wrapper\">\n      <a class=\"brand-logo\">RJShopping Demo</a>\n      <ul id=\"nav-mobile\" class=\"right hide-on-med-and-down\">\n        <li><a (click)=\"goToCustomer()\">Manage Account</a></li>\n        <li><a (click)=\"logout()\">LogOut</a></li>\n      </ul>\n    </div>\n    <div class=\"nav-content\">\n        <div class=\"col s12\">\n      <a class=\"breadcrumb bc\" style=\"margin-left:1%\" (click)=\"shiftToHome()\">Home</a>\n      <a class=\"breadcrumb bc\" (click)=\"shiftToDepartment()\" *ngIf=\"isDepartmentSelected\">{{currentDepartment}}</a>\n      <a class=\"breadcrumb bc\" (click)='shiftToCategory()' *ngIf=\"isCategorySelected\">{{currentCategory}}</a>\n      <a class=\"breadcrumb bc\" (click)='shiftToSubCategory()' *ngIf=\"issubCategorySelected\">{{currentSubCategory}}</a>\n      <a class=\"breadcrumb bc\" *ngIf=\"showRouterOutlet\">{{currentProduct.productName}}</a>\n        </div>\n    </div>\n  </nav>\n\n\n<marquee direction=\"right\" width=\"40%\">\n  <h6>{{selectText}}</h6>\n</marquee>\n\n\n\n\n<div *ngIf=\"!isDepartmentSelected && !isCategorySelected && !issubCategorySelected\">\n  <div class=\"row\" id=\"dept\">\n    <div class=\"department\" class=\"col s3 dept1\" style=\"width:24.5%;height:5%\" *ngFor=\"let x of allDepartmentsList\">\n      <div class=\"animated fadeIn\" (click)=\"selectDepartment($event.target.innerText)\">\n        {{x}}\n      </div>\n    </div>\n  </div>\n</div>\n\n<div *ngIf=\"isDepartmentSelected && !isCategorySelected\">\n  <div class=\"row\" id=\"dept\">\n    <div class=\"category\" class=\"col s3 dept1\" style=\"width:24.5%;height:5%\" *ngFor=\"let x of specificCategoriesList\">\n      <div class=\"animated fadeIn\" (click)=\"selectCategory($event.target.innerText)\">\n        {{x}}\n      </div>\n    </div>\n  </div>\n</div>\n\n<div *ngIf=\"!issubCategorySelected && isCategorySelected\">\n  <div class=\"row\" id=\"dept\">\n    <div class=\"category\" class=\"col s3 dept1\" style=\"width:24.5%;height:5%\" *ngFor=\"let x of specificSubCategoriesList\">\n      <div class=\"animated fadeIn\" (click)=\"selectSubCategory($event.target.innerText)\">\n        {{x}}\n      </div>\n    </div>\n  </div>\n</div>\n\n<div class=\"row\" *ngIf=\"displayAllProductsFlag\">\n  <div class=\"col s6 m3\" *ngFor=\"let product of productsToBeDisplayed\">\n    <div class=\"card\">\n      <div class=\"card-image\">\n        <img src={{product.productImage}} style=\"width:250px;height:250px;\" (click)=\"goToSpecificProduct(product)\">\n      </div>\n      <div class=\"card-content\">\n        <span class=\"card-title\" style=\"color:black\">{{product.productName}}</span>\n        <p style=\"color:lightskyblue\">{{product.productLongDescription}}</p>\n      </div>\n      <div class=\"card-action\">\n        <a>{{product.productBrand}}</a>\n      </div>\n    </div>\n  </div>\n\n\n\n\n\n\n  \n</div>\n<div *ngIf=\"noProductsFlag\">{{noProduct}}</div>\n\n\n\n\n\n\n<div class=\"row\" *ngIf=\"showRouterOutlet\">\n  <div class=\"col s6 m3\">\n    <div class=\"card\">\n      <div class=\"card-image\">\n        <img src={{currentProduct.productImage}} style=\"width:350px;height:350px;\">\n      </div>\n      <div class=\"card-action\">\n        <a>{{currentProduct.productBrand}}</a>\n        <div><span class=\"card-title\" style=\"color:black\">{{currentProduct.productName}}</span></div>\n      </div>\n    </div>\n  </div>\n  <div class=\"col s6\">\n    <div class=\"row\">\n      <label class=\"x1\">Description:</label><span style=\"margin-left:1%\">{{currentProduct.productLongDescription}}</span>\n\n    </div>\n    <div class=\"row\">\n      <label class=\"x1\">Features:</label>\n      <ul class=\"collection\">\n        <li *ngFor=\"let x of currentProduct.productFeatures\" class=\"collection-item\">{{x}}</li>\n      </ul>\n    </div>\n    <div class=\"row\">\n      <label class=\"x1\">Brand:</label><span style=\"margin-left:1%\">{{currentProduct.productBrand}}</span>\n    </div>\n    <div class=\"row\">\n      <label class=\"x1\">Name:</label><span style=\"margin-left:1%\">{{currentProduct.productName}}</span>\n    </div>\n    <div class=\"row\">\n      <label class=\"x1\">Price:</label><span style=\"margin-left:1%\">{{currentProduct.productCurrentPrice}}</span>\n    </div>\n    <div class=\"row\">\n      <label class=\"x1\">Short Desc.,:</label><span style=\"margin-left:1%\">{{currentProduct.productShortDescription}}</span>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -344,7 +540,10 @@ let HomePageComponent = class HomePageComponent {
         this.productsToBeDisplayed = new Array();
         this.noProduct = 'There are no products available in this section yet!!';
         this.ProductsList = this.db.list('/Products_List');
-        //console.log(this.db.database.ref('/Products_Lists'));
+        ////console.log(this.db.database.ref('/Products_Lists'));
+    }
+    goToCustomer() {
+        this.router.navigateByUrl('customer');
     }
     ngOnInit() {
         this.issubCategorySelected = false;
@@ -358,13 +557,13 @@ let HomePageComponent = class HomePageComponent {
         this.userName = this.auth.userName;
         this.selectText = 'Select any Department to get Started';
         this.fb.fetchDepartments().subscribe(data => {
-            //console.log(data);
+            ////console.log(data);
             var x = Object.keys(data);
-            //console.log(Object.values(data));
+            ////console.log(Object.values(data));
             for (var i = 0; i < x.length; i++) {
                 this.allDepartmentsList.push(data[x[i]]);
             }
-            ////console.log(this.allDepartmentsList);
+            //////console.log(this.allDepartmentsList);
         });
     }
     logout() {
@@ -377,10 +576,10 @@ let HomePageComponent = class HomePageComponent {
     selectDepartment(value) {
         this.isDepartmentSelected = true;
         this.currentDepartment = value;
-        ////console.log(value);
+        //////console.log(value);
         this.fb.fetchSpecificDepartment(value).subscribe(data => {
             var x = Object.keys(data);
-            //console.log(Object.values(data));
+            ////console.log(Object.values(data));
             this.specificCategoriesList = [];
             this.specificCategoriesList = x;
             this.selectText = 'Select a Category';
@@ -392,7 +591,7 @@ let HomePageComponent = class HomePageComponent {
         this.specificSubCategoriesList = [];
         this.fb.fetchSpecificCategory(this.currentDepartment, this.currentCategory).subscribe(data => {
             var x = Object.keys(data);
-            //console.log(Object.values(data));
+            ////console.log(Object.values(data));
             for (var i = 0; i < x.length; i++) {
                 if (data[x[i]] === '') {
                     continue;
@@ -425,11 +624,11 @@ let HomePageComponent = class HomePageComponent {
             else {
                 this.noProductsFlag = false;
             }
-            //console.log(this.productsToBeDisplayed);
+            ////console.log(this.productsToBeDisplayed);
         });
     }
     goToSpecificProduct(product) {
-        ////console.log(product);
+        //////console.log(product);
         this.isDepartmentSelected = true;
         this.isCategorySelected = true;
         this.issubCategorySelected = true;
@@ -473,7 +672,7 @@ let HomePageComponent = class HomePageComponent {
         this.displayAllProductsFlag = false;
     }
     ngOnDestroy() {
-        //console.log('im leaving');
+        ////console.log('im leaving');
         this.isDepartmentSelected = true;
         this.isCategorySelected = true;
         this.issubCategorySelected = true;
@@ -527,8 +726,9 @@ module.exports = "\n<button mdl-button mdl-button-type=\"raised\" mdl-ripple (cl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__ = __webpack_require__("../../../../angularfire2/database.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__("../../../../angularfire2/auth.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_firebase_app__ = __webpack_require__("../../../../firebase/app.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_firebase_app___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_firebase_app__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__models_Customer__ = __webpack_require__("../../../../../src/app/models/Customer.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_firebase_app__ = __webpack_require__("../../../../firebase/app.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_firebase_app___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_firebase_app__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPageComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -545,32 +745,66 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 let LoginPageComponent = class LoginPageComponent {
-    constructor(afAuth, af, auth, router) {
+    constructor(afAuth, db, auth, router) {
         this.afAuth = afAuth;
-        this.af = af;
+        this.db = db;
         this.auth = auth;
         this.router = router;
+        this.customer = new __WEBPACK_IMPORTED_MODULE_5__models_Customer__["a" /* Customer */]();
         this.user = this.afAuth.authState;
+        this.customersList = this.db.list('/Customers_List');
+        /*  console.log(this.customersList.subscribe(data=>{
+           console.log(data);
+         })) */
         this.afAuth.authState.subscribe(auth => {
             if (auth) {
                 this.router.navigateByUrl('home-page');
             }
         });
+        // this.ProductsList = this.db.list('/Products_List');
     }
     ngOnInit() {
     }
     login() {
-        this.afAuth.auth.signInWithPopup(new __WEBPACK_IMPORTED_MODULE_5_firebase_app__["auth"].GoogleAuthProvider());
-        let fireBaseUser = __WEBPACK_IMPORTED_MODULE_5_firebase_app__["auth"]().currentUser;
+        this.afAuth.auth.signInWithPopup(new __WEBPACK_IMPORTED_MODULE_6_firebase_app__["auth"].GoogleAuthProvider());
+        let fireBaseUser = __WEBPACK_IMPORTED_MODULE_6_firebase_app__["auth"]().currentUser;
+        var y;
         this.user.subscribe(data => {
-            console.log(data);
+            //console.log(data);
             if (data != null) {
                 this.imageUrl = data.photoURL;
                 this.userName = data.displayName;
+                this.customer.email = data.email;
+                this.customer.displayName = data.displayName;
                 this.auth.userName = data.displayName;
                 this.auth.photoUrl = data.photoURL;
-                console.log('Im in');
+                this.auth.requestToken = data.getIdToken(true).then(token => {
+                    this.auth.requestToken = token;
+                    //console.log(data.toJSON())
+                    //console.log(this.auth.requestToken);
+                    this.customersList = this.db.list('/Customers_List');
+                    this.customersList.subscribe(data => {
+                        console.log(data);
+                    });
+                });
+                var query = this.db.database.ref('/Customers_List').orderByChild("email").equalTo(data.email).once("value", (snapshot) => {
+                    var userData = snapshot.val();
+                    if (userData) {
+                        console.log('user already exists');
+                    }
+                    else {
+                        console.log('user doesnt exits');
+                        this.customersList.push(this.customer);
+                    }
+                });
+                /* if(y === true){
+                     console.log('i exist in db');
+                   }else if(y === false){
+                     console.log('i dont exist in db');
+                     //this.customersList.push('123')
+                   } */
                 this.isLoggedIn = true;
                 this.router.navigateByUrl('home-page');
             }
@@ -600,6 +834,38 @@ LoginPageComponent = __decorate([
 
 var _a, _b, _c, _d;
 //# sourceMappingURL=login-page.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/models/Customer.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+class Customer {
+    constructor() {
+        this.interests = [];
+        this.cart = [];
+        this.checkOutsDone = [];
+        this.viewedItems = [];
+        this.wishList = [];
+        this.address = [];
+    }
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = Customer;
+
+//# sourceMappingURL=Customer.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/models/address.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+class Address {
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = Address;
+
+//# sourceMappingURL=address.js.map
 
 /***/ }),
 
@@ -680,12 +946,14 @@ var _a, _b;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/add/operator/map.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__ = __webpack_require__("../../../../rxjs/Rx.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__ = __webpack_require__("../../../../angularfire2/auth.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_Rx__ = __webpack_require__("../../../../rxjs/Rx.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_Rx__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FirebaseService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -700,39 +968,54 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 let FirebaseService = class FirebaseService {
-    constructor(http) {
+    constructor(http, afAuth) {
         this.http = http;
+        this.afAuth = afAuth;
+        this._authService = new __WEBPACK_IMPORTED_MODULE_0__auth_service__["a" /* AuthService */](this.af, this.router);
+        this.user = this.afAuth.authState;
+        /*  this.user.subscribe(data=>{
+             data.getIdToken(true).then(token=>{
+                 this.requestToken = token;
+                 //console.log(this.requestToken);
+             })
+         }) */
+        //console.log(this.requestToken);
+        //console.log(this._authService.requestToken);
+        /*      //console.log(this.http.get('http://push.cricbuzz.com/match-api/18462/commentary.json').map(res=>res.json()).subscribe(data=>{
+                 //console.log(data);
+             })); */
     }
     fetchCategories() {
-        return this.http.get('https://samplesite-dd655.firebaseio.com/Lists/CategoriesList.json').map(res => res.json());
+        return this.http.get('https://shoppingdemo-e8235.firebaseio.com/Lists/CategoriesList.json').map(res => res.json());
     }
     fetchDepartments() {
-        return this.http.get('https://samplesite-dd655.firebaseio.com/Lists/DepartmentsList.json').map(res => res.json());
+        return this.http.get('https://shoppingdemo-e8235.firebaseio.com/Lists/DepartmentsList.json').map(res => res.json());
     }
     fetchSubCategories() {
-        return this.http.get('https://samplesite-dd655.firebaseio.com/Lists/SubCategoriesList.json').map(res => res.json());
+        return this.http.get('https://shoppingdemo-e8235.firebaseio.com/Lists/SubCategoriesList.json').map(res => res.json());
     }
     fetchClasses() {
-        return this.http.get('https://samplesite-dd655.firebaseio.com/Lists/ProductsList.json').map(res => res.json());
+        return this.http.get('https://shoppingdemo-e8235.firebaseio.com/Lists/ProductsList.json').map(res => res.json());
     }
     fetchSpecificDepartment(department) {
-        return this.http.get('https://samplesite-dd655.firebaseio.com/Products_List/' + department + '.json').map(res => res.json());
+        return this.http.get('https://shoppingdemo-e8235.firebaseio.com/Products_List/' + department + '.json').map(res => res.json());
     }
     fetchSpecificCategory(department, category) {
-        return this.http.get('https://samplesite-dd655.firebaseio.com/Products_List/' + department + '/' + category + '/' + '.json').map(res => res.json());
+        return this.http.get('https://shoppingdemo-e8235.firebaseio.com/Products_List/' + department + '/' + category + '/' + '.json').map(res => res.json());
     }
     fetchSpecificSubCategory(d, c, s) {
-        return this.http.get('https://samplesite-dd655.firebaseio.com/Products_List/' + d + '/' + c + '/' + s + '/' + '.json').map(res => res.json());
+        return this.http.get('https://shoppingdemo-e8235.firebaseio.com/Products_List/' + d + '/' + c + '/' + s + '/' + '.json').map(res => res.json());
     }
 };
 FirebaseService = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Injectable"])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__["b" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__["b" /* AngularFireAuth */]) === "function" && _b || Object])
 ], FirebaseService);
 
-var _a;
+var _a, _b;
 //# sourceMappingURL=firebase.service.js.map
 
 /***/ }),
@@ -810,7 +1093,7 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dyna
 
 /***/ }),
 
-/***/ 0:
+/***/ 1:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__("../../../../../src/main.ts");
@@ -818,5 +1101,5 @@ module.exports = __webpack_require__("../../../../../src/main.ts");
 
 /***/ })
 
-},[0]);
+},[1]);
 //# sourceMappingURL=main.bundle.js.map
