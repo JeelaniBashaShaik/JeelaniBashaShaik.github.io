@@ -5,7 +5,7 @@
     "display": "standalone",
     "background_color": "#fff",
     "theme_color":"lightgrey",
-    "orientation":"potrait",
+    "orientation": "potrait",
     "description": "Personal App for Jeelani Basha Shaik",
     "icons": [
   {
